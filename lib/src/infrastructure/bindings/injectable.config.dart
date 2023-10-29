@@ -52,6 +52,8 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i8.HttpSectionRespository(gh<_i4.IHttpClient>()));
     gh.factory<_i4.IStoreSectionUseCase>(
         () => _i9.StoreSectionUseCase(gh<_i4.ISectionDataRepository>()));
+    gh.factory<_i4.IUpdateSectionUseCase>(
+        () => _i9.UpdateSectionUseCase(gh<_i4.ISectionDataRepository>()));
     gh.factory<_i4.IUrlLauncher>(() => _i10.UrlLauncherImpl());
     gh.singleton<_i4.IValidatorService>(_i11.CacheValidatorService());
     gh.factory<List<_i3.Interceptor>>(() => dioModule.interceptors);

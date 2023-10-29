@@ -55,12 +55,14 @@ class _PopupableCardState<T> extends State<PopupableCard<T>> {
 class SectionCard extends StatelessWidget {
   final String title;
   final String image;
+  final String description;
   final VoidCallback onTap;
   const SectionCard(
       {super.key,
       required this.title,
       required this.image,
-      required this.onTap});
+      required this.onTap,
+      required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -95,13 +97,26 @@ class SectionCard extends StatelessWidget {
             Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 15.0, horizontal: 5.0),
-              child: Text(
-                title,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary,
-                  fontSize: 20,
-                ),
-                textAlign: TextAlign.center,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 10.0),
+                  Text(
+                    description,
+                    style: const TextStyle(
+                      fontSize: 12,
+                    ),
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
               ),
             ),
           ],

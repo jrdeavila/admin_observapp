@@ -3,12 +3,14 @@ class Section {
   final String title;
   final String slug;
   final String image;
+  final String description;
 
   Section({
     required this.id,
     required this.title,
     required this.slug,
     required this.image,
+    required this.description,
   });
 }
 

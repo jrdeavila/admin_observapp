@@ -32,6 +32,12 @@ class SectionDetailsController extends GetxController {
     actionCallbacks[action]?.call(section);
   }
 
+  void onShowFormSection() {
+    Get.dialog<bool>(const FormSection()).then((value) {
+      Get.find<CreateSectionController>().clear();
+    });
+  }
+
   Map<SectionAction, Future<void> Function(Section section)>
       get actionCallbacks => {
             SectionAction.delete: (section) {
@@ -48,11 +54,25 @@ class SectionDetailsController extends GetxController {
                   });
                 }
               });
-            }
+            },
+            SectionAction.update: (section) {
+              return Get.dialog<bool>(
+                FormSection(
+                  section: section,
+                ),
+              );
+            },
           };
 
-  void onCreateNewSection(Section section) {
-    _sections.add(section);
+  void onCreateOrUpdateaSection(Section section) {
+    final index =
+        _sections.indexWhere((element) => element.slug == section.slug);
+    if (index == -1) {
+      _sections.add(section);
+    } else {
+      _sections[index] = section;
+    }
+    Get.find<CreateSectionController>().clear();
   }
 }
 

@@ -12,4 +12,11 @@ abstract class ISectionDataRepository {
     required String description,
     required Uint8List image,
   });
+
+  Future<Section> updateSection({
+    required String slug,
+    required String title,
+    String? description,
+    Uint8List? image,
+  });
 }

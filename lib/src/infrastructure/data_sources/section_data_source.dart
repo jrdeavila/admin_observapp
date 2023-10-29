@@ -6,6 +6,7 @@ Section sectionFromJSON(JSON json) {
     title: json["title"],
     slug: json["slug"],
     image: json["image"],
+    description: json["description"],
   );
 }
 

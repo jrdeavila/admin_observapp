@@ -61,3 +61,19 @@ class StoreSectionUseCase implements IStoreSectionUseCase {
     );
   }
 }
+
+@Injectable(as: IUpdateSectionUseCase)
+class UpdateSectionUseCase implements IUpdateSectionUseCase {
+  final ISectionDataRepository _service;
+  UpdateSectionUseCase(this._service);
+
+  @override
+  Future<Section> updateSection(UpdateSectionRequest section) {
+    return _service.updateSection(
+      slug: section.slug,
+      title: section.title,
+      description: section.description,
+      image: section.image,
+    );
+  }
+}

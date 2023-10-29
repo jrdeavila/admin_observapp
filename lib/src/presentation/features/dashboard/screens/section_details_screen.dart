@@ -73,11 +73,7 @@ class SectionDetailsScreen extends GetView<SectionDetailsController> {
       ),
       floatingActionButton: CustomFloatingButton(
         onTap: (details) {
-          dialogBuilder(
-            context,
-            details.globalPosition,
-            const FormSection(),
-          );
+          controller.onShowFormSection();
         },
         icon: FontAwesomeIcons.paperclip,
       ),
@@ -118,6 +114,7 @@ class SectionDetailsScreen extends GetView<SectionDetailsController> {
       child: SectionCard(
         title: e.title,
         image: e.image,
+        description: e.description,
         onTap: () {
           controller.onSelectSection(e);
         },

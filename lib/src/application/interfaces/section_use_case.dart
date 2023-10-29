@@ -19,3 +19,7 @@ abstract class IDeleteSectionUseCase {
 abstract class IStoreSectionUseCase {
   Future<Section> storeSection(CreateSectionRequest section);
 }
+
+abstract class IUpdateSectionUseCase {
+  Future<Section> updateSection(UpdateSectionRequest section);
+}
