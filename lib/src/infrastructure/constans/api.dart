@@ -1,2 +1,2 @@
-const baseUrl = "http://54.237.27.88/";
+const baseUrl = "http://ec2-52-86-211-249.compute-1.amazonaws.com";
 const sectionsDomainEndpoint = "/observapp/v1/";
