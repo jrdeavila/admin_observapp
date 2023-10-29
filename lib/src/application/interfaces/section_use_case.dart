@@ -4,8 +4,8 @@ abstract class IConsultSectionsUseCase {
   Future<Iterable<Section>> getSections();
 }
 
-abstract class IConsultExtendedSectionUseCase {
-  Future<ExtendedSection> getSection(Section section);
+abstract class IConsultSubSectionsUseCase {
+  Future<Iterable<SubSection>> getSection(Section section);
 }
 
 abstract class INavigateToDashboardUseCase {
@@ -22,4 +22,16 @@ abstract class IStoreSectionUseCase {
 
 abstract class IUpdateSectionUseCase {
   Future<Section> updateSection(UpdateSectionRequest section);
+}
+
+abstract class IStoreSubSectionUseCase {
+  Future<SubSection> storeSubSection(CreateSubSectionRequest section);
+}
+
+abstract class IUpdateSubSectionUseCase {
+  Future<SubSection> updateSubSection(UpdateSubSectionRequest section);
+}
+
+abstract class IDeleteSubSectionUseCase {
+  Future<void> deleteSubSection(SubSection subSection, Section section);
 }
