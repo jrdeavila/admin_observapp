@@ -13,15 +13,14 @@ class ConsultSectionUseCase implements IConsultSectionsUseCase {
   }
 }
 
-@Injectable(as: IConsultExtendedSectionUseCase)
-class ConsultExtendedSectionUseCase implements IConsultExtendedSectionUseCase {
-  final ISectionDataRepository _sectionDataRepository;
+@Injectable(as: IConsultSubSectionsUseCase)
+class ConsultExtendedSectionUseCase implements IConsultSubSectionsUseCase {
+  final ISubSectionsDataRepository _subSectionsDataRepository;
 
-  ConsultExtendedSectionUseCase(this._sectionDataRepository);
-
+  ConsultExtendedSectionUseCase(this._subSectionsDataRepository);
   @override
-  Future<ExtendedSection> getSection(Section section) {
-    return _sectionDataRepository.getSection(section);
+  Future<Iterable<SubSection>> getSection(Section section) {
+    return _subSectionsDataRepository.getSubSections(section);
   }
 }
 
@@ -59,5 +58,67 @@ class StoreSectionUseCase implements IStoreSectionUseCase {
       description: section.description,
       image: section.image,
     );
+  }
+}
+
+@Injectable(as: IUpdateSectionUseCase)
+class UpdateSectionUseCase implements IUpdateSectionUseCase {
+  final ISectionDataRepository _service;
+  UpdateSectionUseCase(this._service);
+
+  @override
+  Future<Section> updateSection(UpdateSectionRequest section) {
+    return _service.updateSection(
+      slug: section.slug,
+      title: section.title,
+      description: section.description,
+      image: section.image,
+    );
+  }
+}
+
+@Injectable(as: IStoreSubSectionUseCase)
+class StoreSubSectionUseCase implements IStoreSubSectionUseCase {
+  final ISubSectionsDataRepository _service;
+  StoreSubSectionUseCase(this._service);
+
+  @override
+  Future<SubSection> storeSubSection(CreateSubSectionRequest section) {
+    return _service.storeSubSection(
+      title: section.title,
+      description: section.description,
+      image: section.image,
+      section: section.section,
+      dashboardUrl: section.dashboardUrl,
+    );
+  }
+}
+
+@Injectable(as: IUpdateSubSectionUseCase)
+class UpdateSubSectionUseCase implements IUpdateSubSectionUseCase {
+  final ISubSectionsDataRepository _service;
+  UpdateSubSectionUseCase(this._service);
+
+  @override
+  Future<SubSection> updateSubSection(UpdateSubSectionRequest section) {
+    return _service.updateSubSection(
+      slug: section.slug,
+      title: section.title,
+      description: section.description,
+      image: section.image,
+      dashboardUrl: section.dashboardUrl,
+      section: section.section,
+    );
+  }
+}
+
+@Injectable(as: IDeleteSubSectionUseCase)
+class DeleteSubSectionUseCase implements IDeleteSubSectionUseCase {
+  final ISubSectionsDataRepository _service;
+  DeleteSubSectionUseCase(this._service);
+
+  @override
+  Future<void> deleteSubSection(SubSection subSection, Section section) {
+    return _service.deleteSubSection(subSection, section);
   }
 }

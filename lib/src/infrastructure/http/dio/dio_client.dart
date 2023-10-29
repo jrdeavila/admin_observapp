@@ -9,23 +9,35 @@ class DioHttpClient implements IHttpClient {
   const DioHttpClient(this._dio);
 
   @override
-  Future<T> delete<T>(String path, {Map<String, dynamic>? queryParameters}) {
+  Future<T> delete<T>(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+    Map<String, String>? headers,
+  }) {
     return _dio
-        .delete<T>(
-      path,
-      queryParameters: queryParameters,
-    )
+        .delete<T>(path,
+            queryParameters: queryParameters,
+            options: Options(
+              headers: headers,
+            ))
         .then((value) {
       return value.data!;
     });
   }
 
   @override
-  Future<T> get<T>(String path, {Map<String, dynamic>? queryParameters}) {
+  Future<T> get<T>(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+    Map<String, String>? headers,
+  }) {
     return _dio
         .get<T>(
       path,
       queryParameters: queryParameters,
+      options: Options(
+        headers: headers,
+      ),
     )
         .then((value) {
       return value.data!;
@@ -33,25 +45,39 @@ class DioHttpClient implements IHttpClient {
   }
 
   @override
-  Future<T> post<T>(String path,
-      {Object? data, Map<String, dynamic>? queryParameters}) {
+  Future<T> post<T>(
+    String path, {
+    Object? data,
+    Map<String, dynamic>? queryParameters,
+    Map<String, String>? headers,
+  }) {
     return _dio
         .post<T>(
           path,
           data: data,
           queryParameters: queryParameters,
+          options: Options(
+            headers: headers,
+          ),
         )
         .then((value) => value.data!);
   }
 
   @override
-  Future<T> put<T>(String path,
-      {Object? data, Map<String, dynamic>? queryParameters}) {
+  Future<T> put<T>(
+    String path, {
+    Object? data,
+    Map<String, dynamic>? queryParameters,
+    Map<String, String>? headers,
+  }) {
     return _dio
         .put<T>(
           path,
           data: data,
           queryParameters: queryParameters,
+          options: Options(
+            headers: headers,
+          ),
         )
         .then((value) => value.data!);
   }

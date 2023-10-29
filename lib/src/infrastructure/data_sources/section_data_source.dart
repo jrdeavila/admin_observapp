@@ -6,17 +6,7 @@ Section sectionFromJSON(JSON json) {
     title: json["title"],
     slug: json["slug"],
     image: json["image"],
-  );
-}
-
-ExtendedSection extendedSectionFromJSON(JSON json) {
-  return ExtendedSection(
-    id: json["id"],
-    title: json["title"],
     description: json["description"],
-    image: json["image"],
-    subSections: (json["sub-sections"] as List<dynamic>)
-        .map((e) => subSectionFromJSON(e)),
   );
 }
 

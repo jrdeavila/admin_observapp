@@ -65,7 +65,7 @@ class SectionDeletionAlert extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "Esta accion es irremediable! Esta seguro de que desea eliminar el indicador \"$title\"?",
+            "Esta accion es irremediable! Esta seguro de que desea eliminar $title?",
             style: const TextStyle(
               color: Colors.red,
               fontSize: 20.0,
