@@ -5,5 +5,6 @@ class SectionDetailsBindings extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut<SectionDetailsController>(() => SectionDetailsController());
+    Get.lazyPut(() => CreateSectionController());
   }
 }

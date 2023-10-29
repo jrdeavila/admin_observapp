@@ -40,7 +40,7 @@ class ProfileView extends GetView<SessionController> {
                   color: Theme.of(context).colorScheme.secondary,
                   borderRadius: BorderRadius.circular(25),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.person,
                   color: Colors.white,
                   size: 100,

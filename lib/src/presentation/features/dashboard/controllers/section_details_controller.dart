@@ -50,6 +50,10 @@ class SectionDetailsController extends GetxController {
               });
             }
           };
+
+  void onCreateNewSection(Section section) {
+    _sections.add(section);
+  }
 }
 
 enum SectionAction {

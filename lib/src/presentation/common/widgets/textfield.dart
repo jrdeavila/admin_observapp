@@ -24,7 +24,7 @@ class AppTxtField extends StatelessWidget {
   final int? maxLength;
   final bool secondary;
 
-  final List<String>? errors;
+  final List? errors;
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +45,11 @@ class AppTxtField extends StatelessWidget {
             ? Theme.of(context).colorScheme.secondary.withOpacity(0.3)
             : Theme.of(context).colorScheme.onBackground,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide.none,
-        ),
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(
+              color: Colors.grey[300]!,
+              width: 1.0,
+            )),
         hintText: hintText,
         hintStyle: TextStyle(color: textColor),
         prefixIcon: prefixIcon,

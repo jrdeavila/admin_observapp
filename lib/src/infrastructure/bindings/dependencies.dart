@@ -13,11 +13,9 @@ abstract class DioModule {
           connectTimeout: 5000.milliseconds,
           receiveTimeout: 5000.milliseconds,
           headers: {
+            'content-type': 'text/html; charset=utf-8',
+            'application': 'x-www-form-urlencoded',
             "X-Metabase-Session": "1d603365-60e8-49a9-86f7-5ea28acff4d1",
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Content-Type',
-            'Access-Control-Allow-Methods':
-                'GET, POST, OPTIONS, PUT, PATCH, DELETE',
           },
         ),
       )..interceptors.addAll(interceptors);
@@ -26,6 +24,9 @@ abstract class DioModule {
         TokenInterceptor(),
         ValidatorInterceptor(),
         NotificationInterceptor(),
+        LogInterceptor(
+          responseBody: true,
+        )
       ];
 }
 

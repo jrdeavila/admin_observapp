@@ -15,3 +15,7 @@ abstract class INavigateToDashboardUseCase {
 abstract class IDeleteSectionUseCase {
   Future<void> deleteSection(Section section);
 }
+
+abstract class IStoreSectionUseCase {
+  Future<Section> storeSection(CreateSectionRequest section);
+}

@@ -46,3 +46,18 @@ class DeleteSectionUseCase implements IDeleteSectionUseCase {
     return _service.deleteSection(section);
   }
 }
+
+@Injectable(as: IStoreSectionUseCase)
+class StoreSectionUseCase implements IStoreSectionUseCase {
+  final ISectionDataRepository _service;
+  StoreSectionUseCase(this._service);
+
+  @override
+  Future<Section> storeSection(CreateSectionRequest section) {
+    return _service.storeSection(
+      title: section.title,
+      description: section.description,
+      image: section.image,
+    );
+  }
+}
