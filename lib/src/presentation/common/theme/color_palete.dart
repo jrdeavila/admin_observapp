@@ -5,7 +5,6 @@ abstract class ColorPalete {
     scaffoldBackgroundColor: const Color(0xFFEEF1F8),
     inputDecorationTheme: inputDecorationTheme,
     primarySwatch: Colors.blue,
-    fontFamily: "Intel",
   );
 
   // Configuracion de los inputs

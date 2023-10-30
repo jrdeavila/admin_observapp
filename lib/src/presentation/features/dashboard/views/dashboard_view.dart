@@ -83,6 +83,7 @@ class _DashboardViewState extends State<DashboardView> {
                   style: const TextStyle(
                     fontSize: 22.0,
                     fontWeight: FontWeight.bold,
+                    fontFamily: "Poppins",
                   ),
                   textAlign: TextAlign.start,
                 ),

@@ -26,21 +26,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
         body: Stack(
       children: [
-        Positioned(
-            width: MediaQuery.of(context).size.width * 1.7,
-            bottom: 200,
-            left: 100,
-            child: Image.asset('assets/Backgrounds/Spline.png')),
         Positioned.fill(
             child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 20, sigmaY: 10),
         )),
-        const RiveAnimation.asset('assets/RiveAssets/shapes.riv'),
         Positioned.fill(
             child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 20, sigmaY: 10),
           child: const SizedBox(),
         )),
+        Positioned(
+          width: 100,
+          height: 100,
+          right: 50,
+          top: 80,
+          child: Image.asset('assets/img/small_logo.png'),
+        ),
         AnimatedPositioned(
           duration: const Duration(milliseconds: 240),
           top: isSignInDialogShown ? -50 : 0,

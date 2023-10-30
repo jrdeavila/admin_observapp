@@ -112,11 +112,14 @@ class ItemCard extends StatelessWidget {
   final String title;
   final String icon;
   final VoidCallback onTap;
-  const ItemCard(
-      {super.key,
-      required this.title,
-      required this.icon,
-      required this.onTap});
+  final bool disabled;
+  const ItemCard({
+    super.key,
+    required this.title,
+    required this.icon,
+    required this.onTap,
+    this.disabled = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +130,9 @@ class ItemCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 20.0),
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: disabled
+              ? Colors.grey[300]
+              : Theme.of(context).colorScheme.onPrimary,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
@@ -152,10 +157,11 @@ class ItemCard extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(vertical: 15.0, horizontal: 5.0),
               child: Text(
-                title,
+                "$title ${disabled ? '(Proximamente)' : ''}",
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.primary,
                   fontSize: 20,
+                  fontFamily: "Poppins",
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -226,6 +232,7 @@ class ExtendedItemCard extends StatelessWidget {
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.primary,
                         fontSize: 30,
+                        fontFamily: "Poppins",
                         fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.start,
