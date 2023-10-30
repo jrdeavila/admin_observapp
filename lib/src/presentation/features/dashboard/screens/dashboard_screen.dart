@@ -63,7 +63,9 @@ class DashboardScreen extends GetView<DashboardController> {
                           "Administra los tableros de informacion usando la informacion de BigQuery",
                       color: const Color(0xFFdde9fa),
                       icon: "assets/icons/metabase.png",
-                      onTap: () {},
+                      onTap: () {
+                        controller.toMetabase();
+                      },
                     ),
                     ExtendedItemCard(
                       title: "Big Query",
@@ -71,7 +73,9 @@ class DashboardScreen extends GetView<DashboardController> {
                           "Usa los servicios de Google Cloud Computing - Big Query para normalizar los datos. Tus datos estan guardados y respaldados en la nube de cloud.",
                       color: const Color(0xFFdde9fa),
                       icon: "assets/icons/bigquery.png",
-                      onTap: () {},
+                      onTap: () {
+                        controller.toBigQuery();
+                      },
                     ),
                   ],
                 ),

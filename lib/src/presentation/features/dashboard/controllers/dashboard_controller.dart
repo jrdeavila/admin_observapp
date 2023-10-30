@@ -33,4 +33,13 @@ class DashboardController extends GetxController {
   void onSectionTap(Section section) {
     Get.toNamed(sectionManagmentRoute, arguments: section);
   }
+
+  void toMetabase() {
+    getIt<IRedirectionUseCase>().redirect("$baseUrl/metabase");
+  }
+
+  void toBigQuery() {
+    getIt<IRedirectionUseCase>().redirect(
+        "https://console.cloud.google.com/bigquery?hl=es&project=barber-club-backed&ws=!1m0");
+  }
 }
